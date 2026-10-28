@@ -1,0 +1,55 @@
+services:
+  # Local-only credentials (pentice/pentice). Production uses its own DATABASE_URL.
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: pentice
+      POSTGRES_PASSWORD: pentice
+      POSTGRES_DB: pentice
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pentice -d pentice"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  api:
+    build: .
+    env_file: .env
+    environment:
+      # Inside the network the services are "db" and "rules", not localhost.
+      DATABASE_URL: postgresql+psycopg://pentice:pentice@db:5432/pentice
+      # To use a Gist instead, replace this URL (or send source_url per request).
+      HOUSE_RULES_URL: http://rules:8001/house-rules-harbor-lofts.md
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      rules:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Serves data/house-rules over HTTP (same files as `make serve-rules`).
+  # Mounted read-only: edit a rules file and the next POST /quizzes sees the change.
+  rules:
+    image: python:3.12-slim
+    command: ["python", "-m", "http.server", "8001", "--directory", "/srv/house-rules"]
+    volumes:
+      - ./data/house-rules:/srv/house-rules:ro
+    ports:
+      - "8001:8001"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/house-rules-harbor-lofts.md', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  pg-data:

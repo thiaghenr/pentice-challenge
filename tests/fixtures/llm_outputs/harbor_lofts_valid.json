@@ -1,0 +1,95 @@
+{
+  "questions": [
+    {
+      "text": "What time does check-in open at Harbor Lofts?",
+      "section": "Check-in and check-out",
+      "source_quote": "Check-in opens at **4:00 PM**.",
+      "topic": "check_in",
+      "explanation": "Check-in opens at 4:00 PM; earlier only if the front desk confirms in writing.",
+      "options": [
+        {"text": "2:00 PM", "is_correct": false},
+        {"text": "3:00 PM", "is_correct": false},
+        {"text": "4:00 PM", "is_correct": true},
+        {"text": "5:00 PM", "is_correct": false}
+      ]
+    },
+    {
+      "text": "Which statements about late check-out are true?",
+      "section": "Check-in and check-out",
+      "source_quote": "Late check-out costs **$40 per hour** and must be requested before 8:00 PM the night before.",
+      "topic": "check_in",
+      "explanation": "Late check-out is $40 per hour and must be requested before 8:00 PM the night before.",
+      "options": [
+        {"text": "It costs $40 per hour", "is_correct": true},
+        {"text": "It must be requested before 8:00 PM the night before", "is_correct": true},
+        {"text": "It is free until 1:00 PM", "is_correct": false},
+        {"text": "It can be requested on the morning of check-out", "is_correct": false}
+      ]
+    },
+    {
+      "text": "After what time does a visitor count as a guest who must be registered?",
+      "section": "Guests and visitors",
+      "source_quote": "Anyone staying past 10:00 PM counts as a guest and must be registered at the front desk with an ID.",
+      "topic": "visitors",
+      "explanation": "Visitors staying past 10:00 PM must be registered at the front desk with an ID.",
+      "options": [
+        {"text": "9:00 PM", "is_correct": false},
+        {"text": "10:00 PM", "is_correct": true},
+        {"text": "11:00 PM", "is_correct": false},
+        {"text": "Midnight", "is_correct": false}
+      ]
+    },
+    {
+      "text": "When are quiet hours at Harbor Lofts?",
+      "section": "Noise",
+      "source_quote": "Quiet hours are **10:00 PM to 8:00 AM** every day.",
+      "topic": "noise",
+      "explanation": "Quiet hours run from 10:00 PM to 8:00 AM every day.",
+      "options": [
+        {"text": "9:00 PM to 7:00 AM", "is_correct": false},
+        {"text": "10:00 PM to 8:00 AM", "is_correct": true},
+        {"text": "11:00 PM to 7:00 AM", "is_correct": false},
+        {"text": "Only on weekends", "is_correct": false}
+      ]
+    },
+    {
+      "text": "Which statements about the garage parking are correct?",
+      "section": "Parking",
+      "source_quote": "A spot must be booked in advance and costs **$18 per night**; it is not included in the reservation.",
+      "topic": "parking",
+      "explanation": "Garage spots must be booked in advance and cost $18 per night; they are not included.",
+      "options": [
+        {"text": "A spot must be booked in advance", "is_correct": true},
+        {"text": "A spot costs $18 per night", "is_correct": true},
+        {"text": "Parking is included in the reservation", "is_correct": false},
+        {"text": "Any free spot can be used without booking", "is_correct": false}
+      ]
+    },
+    {
+      "text": "Where is smoking allowed at Harbor Lofts?",
+      "section": "Smoking and pets",
+      "source_quote": "Smoking and vaping are not allowed anywhere in the building, including balconies.",
+      "topic": "smoking",
+      "explanation": "Smoking and vaping are banned everywhere in the building, balconies included.",
+      "options": [
+        {"text": "On the balcony", "is_correct": false},
+        {"text": "On the roof terrace", "is_correct": false},
+        {"text": "Nowhere in the building, including balconies", "is_correct": true},
+        {"text": "Inside the unit with the windows open", "is_correct": false}
+      ]
+    },
+    {
+      "text": "How much is the security deposit held on your card?",
+      "section": "Deposits and damages",
+      "source_quote": "A **$250 security deposit** is held on your card at check-in",
+      "topic": "deposit",
+      "explanation": "A $250 deposit is held at check-in and released within 7 days if there is no damage.",
+      "options": [
+        {"text": "$100", "is_correct": false},
+        {"text": "$250", "is_correct": true},
+        {"text": "$300", "is_correct": false},
+        {"text": "There is no deposit", "is_correct": false}
+      ]
+    }
+  ]
+}

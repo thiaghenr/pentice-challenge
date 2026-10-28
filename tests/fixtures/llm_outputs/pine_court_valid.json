@@ -1,0 +1,82 @@
+{
+  "questions": [
+    {
+      "text": "From what time can you check in at Pine Court?",
+      "section": "Arrival",
+      "source_quote": "Check-in is from **3:00 PM**.",
+      "topic": "check_in",
+      "explanation": "Check-in is from 3:00 PM; before that the concierge can keep your bags.",
+      "options": [
+        {"text": "1:00 PM", "is_correct": false},
+        {"text": "2:00 PM", "is_correct": false},
+        {"text": "3:00 PM", "is_correct": true},
+        {"text": "4:00 PM", "is_correct": false}
+      ]
+    },
+    {
+      "text": "When are quiet hours at Pine Court?",
+      "section": "Quiet",
+      "source_quote": "Quiet hours are **9:00 PM to 7:00 AM**.",
+      "topic": "noise",
+      "explanation": "Quiet hours are 9:00 PM to 7:00 AM, and no hard shoes indoors after 9:00 PM.",
+      "options": [
+        {"text": "9:00 PM to 7:00 AM", "is_correct": true},
+        {"text": "10:00 PM to 8:00 AM", "is_correct": false},
+        {"text": "11:00 PM to 7:00 AM", "is_correct": false},
+        {"text": "There are no quiet hours", "is_correct": false}
+      ]
+    },
+    {
+      "text": "Which pool rules are correct?",
+      "section": "Pool",
+      "source_quote": "Children under 12 must be with an adult. No glass near the pool.",
+      "topic": "amenities",
+      "explanation": "Children under 12 need an adult at the pool, and glass is not allowed near it.",
+      "options": [
+        {"text": "Children under 12 must be with an adult", "is_correct": true},
+        {"text": "Glass is not allowed near the pool", "is_correct": true},
+        {"text": "Pool towels are provided", "is_correct": false},
+        {"text": "The pool is open 24 hours", "is_correct": false}
+      ]
+    },
+    {
+      "text": "How much does a second car cost per night?",
+      "section": "Cars",
+      "source_quote": "A second car costs **$12 per night** and needs a permit from the concierge",
+      "topic": "parking",
+      "explanation": "A second car costs $12 per night and needs a permit from the concierge.",
+      "options": [
+        {"text": "It is free", "is_correct": false},
+        {"text": "$12 per night", "is_correct": true},
+        {"text": "$18 per night", "is_correct": false},
+        {"text": "$25 per night", "is_correct": false}
+      ]
+    },
+    {
+      "text": "Which pets are welcome at Pine Court?",
+      "section": "Pets",
+      "source_quote": "Dogs up to **15 kg** are welcome for a **$30 per stay** fee, maximum one per unit",
+      "topic": "pets",
+      "explanation": "One dog up to 15 kg is welcome for $30 per stay; cats and other animals are not.",
+      "options": [
+        {"text": "Dogs up to 15 kg", "is_correct": true},
+        {"text": "Cats", "is_correct": false},
+        {"text": "Any dog regardless of size", "is_correct": false},
+        {"text": "Up to two dogs per unit", "is_correct": false}
+      ]
+    },
+    {
+      "text": "Does Pine Court hold a security deposit?",
+      "section": "Money",
+      "source_quote": "We do not hold a deposit. Instead, damage found at check-out is charged to the card on file",
+      "topic": "deposit",
+      "explanation": "There is no deposit; damage found at check-out is charged to the card on file.",
+      "options": [
+        {"text": "No, damage is charged to the card on file", "is_correct": true},
+        {"text": "Yes, $250 held at check-in", "is_correct": false},
+        {"text": "Yes, $100 paid in cash", "is_correct": false},
+        {"text": "Yes, one night's rate", "is_correct": false}
+      ]
+    }
+  ]
+}
