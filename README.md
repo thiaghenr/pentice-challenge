@@ -20,7 +20,7 @@ make dev                      # starts Postgres (make db), runs migrations, star
 **Database:** PostgreSQL 16. `make db` starts only the Compose `db` service on `localhost:5432` (user/password/database `pentice`, local use only), and the default `DATABASE_URL` already points to it. On first start, Compose also creates the `pentice_test` database used by the tests (`make test` starts `db` first). To use another Postgres, set `DATABASE_URL` (and `TEST_DATABASE_URL` for the tests).
 
 In `.env`, point `HOUSE_RULES_URL` at a raw file/Gist or at the local server:
-`HOUSE_RULES_URL=http://localhost:8001/house-rules-harbor-lofts.md`.
+`HOUSE_RULES_URL=https://gist.githubusercontent.com/thiaghenr/17ab8b30408a0f8a73daf05283d27331/raw/12a4da60c1b69bf8c9e64c900a1a213a19489eb8/house-rules-harbor-lofts.md`.
 
 **The system still works without an LLM key.** The quiz then comes from the deterministic fallback, with `generation_mode: "fallback_template"`. This makes an offline demo easy.
 
@@ -45,13 +45,13 @@ Compose starts three services:
 | `api` | 8000 | Waits for `db` to be healthy, runs `alembic upgrade head`, starts the API (non-root user, healthcheck on `/healthz`) |
 | `rules` | 8001 | Serves `data/house-rules/` (mounted read-only: editing a file changes the next generation) |
 
-Inside Compose, `HOUSE_RULES_URL` is pinned to `http://rules:8001/house-rules-harbor-lofts.md`, overriding the one in `.env`. For Pine Court, send `"source_url": "http://rules:8001/house-rules-pine-court.md"` in `POST /quizzes`. To use a Gist, change the URL in `docker-compose.yml` or send `source_url`. To reset the database: `docker compose down -v` (deletes the `pg-data` volume).
+Inside Compose, `HOUSE_RULES_URL` is pinned to `https://gist.githubusercontent.com/thiaghenr/17ab8b30408a0f8a73daf05283d27331/raw/12a4da60c1b69bf8c9e64c900a1a213a19489eb8/house-rules-harbor-lofts.md`, overriding the one in `.env`. For Pine Court, send `"source_url": "https://gist.githubusercontent.com/thiaghenr/17ab8b30408a0f8a73daf05283d27331/raw/12a4da60c1b69bf8c9e64c900a1a213a19489eb8/house-rules-pine-court.md"` in `POST /quizzes`. To use a Gist, change the URL in `docker-compose.yml` or send `source_url`. To reset the database: `docker compose down -v` (deletes the `pg-data` volume).
 
 ### Running another building without code changes
 
 ```bash
 curl -X POST localhost:8000/api/v1/quizzes -H "X-API-Key: $OPS_API_KEY" -H "Content-Type: application/json" \
-  -d '{"building_slug": "pine-court", "source_url": "http://localhost:8001/house-rules-pine-court.md"}'
+  -d '{"building_slug": "pine-court", "source_url": "https://gist.githubusercontent.com/thiaghenr/17ab8b30408a0f8a73daf05283d27331/raw/12a4da60c1b69bf8c9e64c900a1a213a19489eb8/house-rules-pine-court.md"}'
 ```
 
 Changing `HOUSE_RULES_URL` also works. The parser only splits the text on `##` headings, so it behaves the same with bullets (Harbor Lofts) and prose (Pine Court).

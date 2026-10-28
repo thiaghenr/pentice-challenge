@@ -25,7 +25,7 @@ services:
       # Inside the network the services are "db" and "rules", not localhost.
       DATABASE_URL: postgresql+psycopg://pentice:pentice@db:5432/pentice
       # To use a Gist instead, replace this URL (or send source_url per request).
-      HOUSE_RULES_URL: http://rules:8001/house-rules-harbor-lofts.md
+      HOUSE_RULES_URL: https://gist.githubusercontent.com/thiaghenr/17ab8b30408a0f8a73daf05283d27331/raw/12a4da60c1b69bf8c9e64c900a1a213a19489eb8/house-rules-harbor-lofts.md
     ports:
       - "8000:8000"
     depends_on:
